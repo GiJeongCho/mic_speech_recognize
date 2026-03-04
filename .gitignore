@@ -1,19 +1,146 @@
-.venv/
-__pycache__/
-*.pyc
+# ==========================================
+# mic_speech_recognize 프로젝트 전용
+# ==========================================
 
 # 모델 파일
 src/resoursces/models/
 
-# 오디오 데이터
-*.wav
-*.mp3
-*.flac
-*.m4a
-
 # 처리 결과
 processed_result_final/
 clean_*
+output/
 
-# 환경
+# 등록 화자 / 테스트 음성 데이터
+src/resoursces/test/input_Data/
+src/resoursces/test/processed_result_final/
+음성테스트데이터/
+
+# ==========================================
+# Audio
+# ==========================================
+*.wav
+*.aif
+*.iff
+*.m3u
+*.m4a
+*.mid
+*.mp3
+*.mpa
+*.ra
+*.wma
+*.ogg
+*.flac
+
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+*.mo
+*.pot
+*.log
+local_settings.py
+instance/
+.webassets-cache
+docs/_build/
+.pybuilder/
+target/
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+__pypackages__/
+celerybeat-schedule
+celerybeat.pid
+*.sage.py
 .env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+cython_debug/
+
+# ==========================================
+# IDE / Editor
+# ==========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+*.code-workspace
+.idea/
+*.iml
+.ionide
+
+# ==========================================
+# Linux
+# ==========================================
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==========================================
+# Windows
+# ==========================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
