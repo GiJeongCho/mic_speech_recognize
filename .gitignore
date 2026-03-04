@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+
+# 모델 파일
+src/resoursces/models/
+
+# 오디오 데이터
+*.wav
+*.mp3
+*.flac
+*.m4a
+
+# 처리 결과
+processed_result_final/
+clean_*
+
+# 환경
+.env
