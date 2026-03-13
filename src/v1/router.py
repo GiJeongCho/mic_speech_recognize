@@ -1,15 +1,17 @@
-"""API 라우트 정의.
+"""API route definitions.
 
-엔드포인트:
-  POST /v1/recognize  — 다채널 마이크 파일 + 등록 화자 디렉토리 → 화자별 발화 구간
-  GET  /v1/jobs/{id}   — 작업 진행률 조회
+Endpoints:
+  POST /v1/recognize  -- Upload multi-channel WAV files -> speaker segments
+  GET  /v1/jobs/{id}  -- Poll job progress
+  POST /v1/refine     -- STT + mic 화자 결과를 합쳐 Kiwi 문장 분리 + 화자 매핑
 """
 
+import json
 import logging
 import os
 import shutil
 import uuid
-from typing import Dict, List
+from typing import Annotated, Any, Dict, List, Optional
 
 from fastapi import (
     APIRouter,
@@ -19,27 +21,42 @@ from fastapi import (
     HTTPException,
     UploadFile,
 )
+from fastapi.responses import FileResponse
 
-from .main import get_engine
+from .main import MIXED_AUDIO_DIR, get_engine
 from .utils.job import JobInfo, job_manager
+from .utils.refine import refine_stt_with_mic
 
 logger = logging.getLogger(__name__)
 
 router_v1 = APIRouter(prefix="/v1", tags=["mic-speaker"])
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_INPUT_DATA_DIR = os.path.abspath(
-    os.path.join(CURRENT_DIR, "..", "resoursces", "test", "input_Data")
-)
+
+def _build_speaker_names(
+    raw_names: Optional[str],
+    file_count: int,
+) -> List[str]:
+    """speaker_names 문자열을 파싱하여 화자 이름 리스트를 만든다.
+
+    - 입력이 없으면: ["1번", "2번", "3번", ...]
+    - 입력이 부족하면: 부족한 부분만 번호로 채움
+    """
+    names: List[str] = []
+    if raw_names:
+        names = [n.strip() for n in raw_names.split(",") if n.strip()]
+
+    while len(names) < file_count:
+        names.append(f"{len(names) + 1}번")
+
+    return names[:file_count]
 
 
 def _background_process(
     job_id: str,
     audio_paths: List[str],
-    speakers_dir: str,
-    threshold: float,
+    speaker_names: List[str],
 ) -> None:
-    """백그라운드에서 실행되는 화자 식별 파이프라인."""
+    """Background speaker diarization pipeline."""
     try:
         def update_progress(p: float) -> None:
             job_manager.update_progress(job_id, p)
@@ -47,16 +64,16 @@ def _background_process(
         engine = get_engine()
         result = engine.process(
             audio_paths=audio_paths,
-            speakers_dir=speakers_dir,
-            threshold=threshold,
+            job_id=job_id,
+            speaker_names=speaker_names,
             progress_callback=update_progress,
         )
         job_manager.complete_job(job_id, result)
-        logger.info("Job %s 완료", job_id)
+        logger.info("Job %s completed", job_id)
 
-    except Exception:
-        logger.exception("Job %s 실패", job_id)
-        job_manager.fail_job(job_id, str(Exception))
+    except Exception as exc:
+        logger.exception("Job %s failed", job_id)
+        job_manager.fail_job(job_id, str(exc))
 
     finally:
         for path in audio_paths:
@@ -64,48 +81,58 @@ def _background_process(
                 if os.path.exists(path):
                     os.remove(path)
             except OSError:
-                logger.warning("임시 파일 삭제 실패: %s", path)
+                logger.warning("Failed to cleanup temp file: %s", path)
 
 
-@router_v1.post("/recognize", response_model=Dict[str, str])
+RECOGNIZE_OPENAPI: Dict[str, Any] = {
+    "requestBody": {
+        "required": True,
+        "content": {
+            "multipart/form-data": {
+                "schema": {
+                    "type": "object",
+                    "required": ["audio_files"],
+                    "properties": {
+                        "audio_files": {
+                            "type": "array",
+                            "items": {"type": "string", "format": "binary"},
+                            "description": "Multi-channel mic WAV files (2 or more)",
+                        },
+                        "speaker_names": {
+                            "type": "string",
+                            "description": "Comma-separated speaker names (e.g. 'Alice,Bob,Charlie'). If empty, defaults to 1, 2, 3...",
+                        },
+                    },
+                }
+            }
+        },
+    }
+}
+
+
+@router_v1.post(
+    "/recognize",
+    response_model=Dict[str, str],
+    openapi_extra=RECOGNIZE_OPENAPI,
+)
 async def recognize_speakers(
     background_tasks: BackgroundTasks,
-    audio_files: List[UploadFile] = File(
-        ..., description="다채널 마이크 녹음 WAV 파일들 (2개 이상)"
-    ),
-    speakers_dir: str = Form(
-        default="",
-        description="등록 화자 음성이 있는 디렉토리 경로 (비어있으면 기본 input_Data 사용)",
-    ),
-    threshold: float = Form(
-        default=0.2,
-        description="ERes2Net 화자 매칭 임계값",
-    ),
+    audio_files: Annotated[List[UploadFile], File()],
+    speaker_names: str = Form(default=""),
 ) -> Dict[str, str]:
-    """다채널 마이크 파일을 업로드하면 화자별 발화 구간을 식별합니다.
+    """Upload multi-channel mic recordings to identify speaker segments.
 
-    등록 화자 디렉토리 구조:
-        speakers_dir/
-        ├── 화자A/
-        │   ├── sample1.wav
-        │   └── sample2.wav
-        └── 화자B/
-            └── sample1.wav
+    - audio_files: WAV files, one per mic channel (min 2)
+    - speaker_names: comma-separated names matching file order
+      (e.g. "Alice,Bob,Charlie"). If empty, uses "1번, 2번, 3번..."
     """
     if len(audio_files) < 2:
         raise HTTPException(
             status_code=400,
-            detail="최소 2개 이상의 마이크 녹음 파일이 필요합니다.",
+            detail="At least 2 mic recording files are required.",
         )
 
-    target_speakers_dir = speakers_dir.strip() or os.getenv(
-        "INPUT_DATA_PATH", DEFAULT_INPUT_DATA_DIR
-    )
-    if not os.path.exists(target_speakers_dir):
-        raise HTTPException(
-            status_code=400,
-            detail=f"등록 화자 디렉토리가 존재하지 않습니다: {target_speakers_dir}",
-        )
+    names = _build_speaker_names(speaker_names, len(audio_files))
 
     job_id = str(uuid.uuid4())
     job_manager.create_job(job_id)
@@ -121,15 +148,14 @@ async def recognize_speakers(
         for p in temp_audio_paths:
             if os.path.exists(p):
                 os.remove(p)
-        job_manager.fail_job(job_id, f"파일 업로드 실패: {exc}")
-        raise HTTPException(status_code=500, detail="파일 업로드 실패")
+        job_manager.fail_job(job_id, f"File upload failed: {exc}")
+        raise HTTPException(status_code=500, detail="File upload failed")
 
     background_tasks.add_task(
         _background_process,
         job_id,
         temp_audio_paths,
-        target_speakers_dir,
-        threshold,
+        names,
     )
 
     return {"job_id": job_id, "status": "pending"}
@@ -137,8 +163,64 @@ async def recognize_speakers(
 
 @router_v1.get("/jobs/{job_id}", response_model=JobInfo)
 async def get_job_status(job_id: str) -> JobInfo:
-    """작업 진행 상태 및 결과를 조회합니다."""
+    """Poll job progress and results."""
     job = job_manager.get_job(job_id)
     if job is None:
-        raise HTTPException(status_code=404, detail="Job을 찾을 수 없습니다.")
+        raise HTTPException(status_code=404, detail="Job not found")
     return job
+
+
+@router_v1.get("/jobs/{job_id}/mixed-audio")
+async def download_mixed_audio(job_id: str) -> FileResponse:
+    """Download the mixed (combined) audio file for a completed job."""
+    job = job_manager.get_job(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    mixed_path = os.path.join(MIXED_AUDIO_DIR, f"{job_id}_mixed.wav")
+    if not os.path.exists(mixed_path):
+        raise HTTPException(status_code=404, detail="Mixed audio file not found")
+
+    return FileResponse(
+        path=mixed_path,
+        media_type="audio/wav",
+        filename=f"{job_id}_mixed.wav",
+    )
+
+
+@router_v1.post("/refine")
+async def refine_with_mic(
+    stt_json: UploadFile = File(
+        ...,
+        description="WhisperX STT 결과 JSON 파일 (segments + words 포함)",
+    ),
+    mic_output_json: UploadFile = File(
+        ...,
+        description="mic_speech_recognize 결과 JSON 파일 (화자 구간 포함)",
+    ),
+):
+    """STT 결과와 mic 화자 구간을 합쳐 Kiwi 문장 분리 + 화자 매핑을 수행합니다.
+
+    - stt_json: WhisperX `/transcribe` 결과 (segments, words 포함)
+    - mic_output_json: `/v1/recognize` 결과 (results에 화자 구간 포함)
+
+    반환값은 { start, end, text, speaker } 리스트입니다.
+    """
+    try:
+        stt_raw = await stt_json.read()
+        stt_data = json.loads(stt_raw)
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+        raise HTTPException(status_code=400, detail=f"Invalid stt_json: {e}")
+
+    try:
+        mic_raw = await mic_output_json.read()
+        mic_data = json.loads(mic_raw)
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+        raise HTTPException(status_code=400, detail=f"Invalid mic_output_json: {e}")
+
+    refined = refine_stt_with_mic(stt_data, mic_data)
+    return {
+        "status": "success",
+        "count": len(refined),
+        "results": refined,
+    }

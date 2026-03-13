@@ -1,21 +1,18 @@
 [project]
 name = "mic-speech-recognize"
 version = "0.1.0"
-description = "다채널 마이크 기반 화자 동기화 및 식별 API"
-requires-python = ">=3.9"
+description = "Multi-channel mic synchronization and speaker diarization API"
+requires-python = ">=3.10"
 dependencies = [
     "fastapi",
     "uvicorn",
     "python-multipart",
-    "torch",
-    "torchaudio",
-    "modelscope",
-    "huggingface-hub",
+    "pydantic",
     "numpy",
     "librosa",
     "soundfile",
     "scipy",
-    "pydantic",
+    "kiwipiepy",
 ]
 
 [build-system]

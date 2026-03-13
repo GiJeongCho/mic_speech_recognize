@@ -1,0 +1,1520 @@
+{
+  "job_id": "6050fe0b-c76b-434e-ac2e-730414dc73ad",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-03-04T17:43:40.013130",
+  "started_at": "2026-03-04T17:43:40.285690",
+  "completed_at": "2026-03-04T17:43:59.556953",
+  "result": {
+    "status": "success",
+    "processing_time": "19.27s",
+    "channel_names": [
+      "수현",
+      "용범",
+      "기정",
+      "나연",
+      "루아"
+    ],
+    "lags": [
+      0,
+      19.664,
+      26.588,
+      -8.133,
+      10.394
+    ],
+    "total_segments": 298,
+    "results": [
+      {
+        "speaker": "용범",
+        "start": 0,
+        "end": 2.2
+      },
+      {
+        "speaker": "루아",
+        "start": 2.2,
+        "end": 2.4
+      },
+      {
+        "speaker": "용범",
+        "start": 2.4,
+        "end": 4.5
+      },
+      {
+        "speaker": "수현",
+        "start": 4.5,
+        "end": 6.4
+      },
+      {
+        "speaker": "용범",
+        "start": 6.4,
+        "end": 7
+      },
+      {
+        "speaker": "수현",
+        "start": 7,
+        "end": 14.9
+      },
+      {
+        "speaker": "용범",
+        "start": 14.9,
+        "end": 15.2
+      },
+      {
+        "speaker": "수현",
+        "start": 15.2,
+        "end": 15.3
+      },
+      {
+        "speaker": "용범",
+        "start": 15.3,
+        "end": 15.4
+      },
+      {
+        "speaker": "수현",
+        "start": 15.4,
+        "end": 16.7
+      },
+      {
+        "speaker": "용범",
+        "start": 16.7,
+        "end": 19.2
+      },
+      {
+        "speaker": "수현",
+        "start": 19.2,
+        "end": 26.3
+      },
+      {
+        "speaker": "용범",
+        "start": 26.3,
+        "end": 26.6
+      },
+      {
+        "speaker": "수현",
+        "start": 26.6,
+        "end": 27.3
+      },
+      {
+        "speaker": "용범",
+        "start": 27.3,
+        "end": 27.5
+      },
+      {
+        "speaker": "수현",
+        "start": 27.5,
+        "end": 27.9
+      },
+      {
+        "speaker": "용범",
+        "start": 27.9,
+        "end": 28.2
+      },
+      {
+        "speaker": "수현",
+        "start": 28.2,
+        "end": 28.4
+      },
+      {
+        "speaker": "용범",
+        "start": 28.4,
+        "end": 28.7
+      },
+      {
+        "speaker": "수현",
+        "start": 28.7,
+        "end": 30.4
+      },
+      {
+        "speaker": "용범",
+        "start": 30.4,
+        "end": 38.8
+      },
+      {
+        "speaker": "수현",
+        "start": 38.8,
+        "end": 41.2
+      },
+      {
+        "speaker": "용범",
+        "start": 41.2,
+        "end": 42
+      },
+      {
+        "speaker": "수현",
+        "start": 42,
+        "end": 42.1
+      },
+      {
+        "speaker": "용범",
+        "start": 42.1,
+        "end": 43.6
+      },
+      {
+        "speaker": "나연",
+        "start": 43.6,
+        "end": 45.1
+      },
+      {
+        "speaker": "용범",
+        "start": 45.1,
+        "end": 49.5
+      },
+      {
+        "speaker": "수현",
+        "start": 49.5,
+        "end": 57.8
+      },
+      {
+        "speaker": "용범",
+        "start": 57.8,
+        "end": 58.6
+      },
+      {
+        "speaker": "수현",
+        "start": 58.6,
+        "end": 58.7
+      },
+      {
+        "speaker": "루아",
+        "start": 58.7,
+        "end": 58.8
+      },
+      {
+        "speaker": "수현",
+        "start": 58.8,
+        "end": 60.7
+      },
+      {
+        "speaker": "용범",
+        "start": 60.7,
+        "end": 62.1
+      },
+      {
+        "speaker": "수현",
+        "start": 62.1,
+        "end": 66.2
+      },
+      {
+        "speaker": "용범",
+        "start": 66.2,
+        "end": 66.9
+      },
+      {
+        "speaker": "수현",
+        "start": 66.9,
+        "end": 73.7
+      },
+      {
+        "speaker": "용범",
+        "start": 73.7,
+        "end": 75.3
+      },
+      {
+        "speaker": "수현",
+        "start": 75.3,
+        "end": 76.6
+      },
+      {
+        "speaker": "루아",
+        "start": 76.6,
+        "end": 77.6
+      },
+      {
+        "speaker": "수현",
+        "start": 77.6,
+        "end": 78.5
+      },
+      {
+        "speaker": "루아",
+        "start": 78.5,
+        "end": 80
+      },
+      {
+        "speaker": "용범",
+        "start": 80,
+        "end": 81.6
+      },
+      {
+        "speaker": "루아",
+        "start": 81.6,
+        "end": 82.4
+      },
+      {
+        "speaker": "용범",
+        "start": 82.4,
+        "end": 82.6
+      },
+      {
+        "speaker": "루아",
+        "start": 82.6,
+        "end": 83.5
+      },
+      {
+        "speaker": "용범",
+        "start": 83.5,
+        "end": 88.5
+      },
+      {
+        "speaker": "기정",
+        "start": 88.5,
+        "end": 91.3
+      },
+      {
+        "speaker": "용범",
+        "start": 91.3,
+        "end": 92.6
+      },
+      {
+        "speaker": "기정",
+        "start": 92.6,
+        "end": 94.1
+      },
+      {
+        "speaker": "루아",
+        "start": 94.1,
+        "end": 94.5
+      },
+      {
+        "speaker": "용범",
+        "start": 94.5,
+        "end": 116.6
+      },
+      {
+        "speaker": "기정",
+        "start": 116.6,
+        "end": 117.6
+      },
+      {
+        "speaker": "용범",
+        "start": 117.6,
+        "end": 185.4
+      },
+      {
+        "speaker": "루아",
+        "start": 185.4,
+        "end": 200.7
+      },
+      {
+        "speaker": "용범",
+        "start": 200.7,
+        "end": 201.6
+      },
+      {
+        "speaker": "루아",
+        "start": 201.6,
+        "end": 203.8
+      },
+      {
+        "speaker": "용범",
+        "start": 203.8,
+        "end": 204.5
+      },
+      {
+        "speaker": "루아",
+        "start": 204.5,
+        "end": 222
+      },
+      {
+        "speaker": "용범",
+        "start": 222,
+        "end": 222.1
+      },
+      {
+        "speaker": "루아",
+        "start": 222.1,
+        "end": 222.9
+      },
+      {
+        "speaker": "용범",
+        "start": 222.9,
+        "end": 224.3
+      },
+      {
+        "speaker": "루아",
+        "start": 224.3,
+        "end": 225.5
+      },
+      {
+        "speaker": "용범",
+        "start": 225.5,
+        "end": 226.4
+      },
+      {
+        "speaker": "루아",
+        "start": 226.4,
+        "end": 230
+      },
+      {
+        "speaker": "용범",
+        "start": 230,
+        "end": 231.2
+      },
+      {
+        "speaker": "루아",
+        "start": 231.2,
+        "end": 236.3
+      },
+      {
+        "speaker": "용범",
+        "start": 236.3,
+        "end": 238.5
+      },
+      {
+        "speaker": "루아",
+        "start": 238.5,
+        "end": 246.8
+      },
+      {
+        "speaker": "용범",
+        "start": 246.8,
+        "end": 249.5
+      },
+      {
+        "speaker": "루아",
+        "start": 249.5,
+        "end": 252.6
+      },
+      {
+        "speaker": "용범",
+        "start": 252.6,
+        "end": 253.5
+      },
+      {
+        "speaker": "루아",
+        "start": 253.5,
+        "end": 258
+      },
+      {
+        "speaker": "용범",
+        "start": 258,
+        "end": 259.4
+      },
+      {
+        "speaker": "루아",
+        "start": 259.4,
+        "end": 264.6
+      },
+      {
+        "speaker": "용범",
+        "start": 264.6,
+        "end": 264.9
+      },
+      {
+        "speaker": "루아",
+        "start": 264.9,
+        "end": 270.9
+      },
+      {
+        "speaker": "용범",
+        "start": 270.9,
+        "end": 272.9
+      },
+      {
+        "speaker": "루아",
+        "start": 272.9,
+        "end": 277.1
+      },
+      {
+        "speaker": "용범",
+        "start": 277.1,
+        "end": 277.8
+      },
+      {
+        "speaker": "루아",
+        "start": 277.8,
+        "end": 279.6
+      },
+      {
+        "speaker": "용범",
+        "start": 279.6,
+        "end": 279.8
+      },
+      {
+        "speaker": "루아",
+        "start": 279.8,
+        "end": 286.8
+      },
+      {
+        "speaker": "용범",
+        "start": 286.8,
+        "end": 287.5
+      },
+      {
+        "speaker": "루아",
+        "start": 287.5,
+        "end": 287.7
+      },
+      {
+        "speaker": "용범",
+        "start": 287.7,
+        "end": 287.8
+      },
+      {
+        "speaker": "루아",
+        "start": 287.8,
+        "end": 289.9
+      },
+      {
+        "speaker": "용범",
+        "start": 289.9,
+        "end": 292.8
+      },
+      {
+        "speaker": "나연",
+        "start": 292.8,
+        "end": 299.1
+      },
+      {
+        "speaker": "용범",
+        "start": 299.1,
+        "end": 299.7
+      },
+      {
+        "speaker": "나연",
+        "start": 299.7,
+        "end": 307.5
+      },
+      {
+        "speaker": "용범",
+        "start": 307.5,
+        "end": 308.2
+      },
+      {
+        "speaker": "나연",
+        "start": 308.2,
+        "end": 311.8
+      },
+      {
+        "speaker": "용범",
+        "start": 311.8,
+        "end": 312.1
+      },
+      {
+        "speaker": "나연",
+        "start": 312.1,
+        "end": 316.3
+      },
+      {
+        "speaker": "루아",
+        "start": 316.3,
+        "end": 318.4
+      },
+      {
+        "speaker": "용범",
+        "start": 318.4,
+        "end": 319.2
+      },
+      {
+        "speaker": "루아",
+        "start": 319.2,
+        "end": 321.9
+      },
+      {
+        "speaker": "용범",
+        "start": 321.9,
+        "end": 322
+      },
+      {
+        "speaker": "루아",
+        "start": 322,
+        "end": 322.3
+      },
+      {
+        "speaker": "용범",
+        "start": 322.3,
+        "end": 322.4
+      },
+      {
+        "speaker": "루아",
+        "start": 322.4,
+        "end": 322.7
+      },
+      {
+        "speaker": "용범",
+        "start": 322.7,
+        "end": 322.9
+      },
+      {
+        "speaker": "나연",
+        "start": 322.9,
+        "end": 325
+      },
+      {
+        "speaker": "용범",
+        "start": 325,
+        "end": 325.9
+      },
+      {
+        "speaker": "루아",
+        "start": 325.9,
+        "end": 326.8
+      },
+      {
+        "speaker": "용범",
+        "start": 326.8,
+        "end": 329
+      },
+      {
+        "speaker": "루아",
+        "start": 329,
+        "end": 334.2
+      },
+      {
+        "speaker": "나연",
+        "start": 334.2,
+        "end": 335.4
+      },
+      {
+        "speaker": "용범",
+        "start": 335.4,
+        "end": 336.5
+      },
+      {
+        "speaker": "나연",
+        "start": 336.5,
+        "end": 338.2
+      },
+      {
+        "speaker": "용범",
+        "start": 338.2,
+        "end": 338.4
+      },
+      {
+        "speaker": "루아",
+        "start": 338.4,
+        "end": 338.5
+      },
+      {
+        "speaker": "나연",
+        "start": 338.5,
+        "end": 341.2
+      },
+      {
+        "speaker": "루아",
+        "start": 341.2,
+        "end": 342.5
+      },
+      {
+        "speaker": "용범",
+        "start": 342.5,
+        "end": 344.1
+      },
+      {
+        "speaker": "루아",
+        "start": 344.1,
+        "end": 344.4
+      },
+      {
+        "speaker": "나연",
+        "start": 344.4,
+        "end": 345.3
+      },
+      {
+        "speaker": "루아",
+        "start": 345.3,
+        "end": 345.4
+      },
+      {
+        "speaker": "나연",
+        "start": 345.4,
+        "end": 345.9
+      },
+      {
+        "speaker": "루아",
+        "start": 345.9,
+        "end": 346.3
+      },
+      {
+        "speaker": "용범",
+        "start": 346.3,
+        "end": 347.4
+      },
+      {
+        "speaker": "나연",
+        "start": 347.4,
+        "end": 348.9
+      },
+      {
+        "speaker": "루아",
+        "start": 348.9,
+        "end": 352.5
+      },
+      {
+        "speaker": "용범",
+        "start": 352.5,
+        "end": 381.3
+      },
+      {
+        "speaker": "나연",
+        "start": 381.3,
+        "end": 383.8
+      },
+      {
+        "speaker": "용범",
+        "start": 383.8,
+        "end": 383.9
+      },
+      {
+        "speaker": "루아",
+        "start": 383.9,
+        "end": 384.1
+      },
+      {
+        "speaker": "나연",
+        "start": 384.1,
+        "end": 388.3
+      },
+      {
+        "speaker": "용범",
+        "start": 388.3,
+        "end": 388.7
+      },
+      {
+        "speaker": "나연",
+        "start": 388.7,
+        "end": 393.2
+      },
+      {
+        "speaker": "용범",
+        "start": 393.2,
+        "end": 393.5
+      },
+      {
+        "speaker": "루아",
+        "start": 393.5,
+        "end": 395.3
+      },
+      {
+        "speaker": "나연",
+        "start": 395.3,
+        "end": 395.6
+      },
+      {
+        "speaker": "루아",
+        "start": 395.6,
+        "end": 395.9
+      },
+      {
+        "speaker": "용범",
+        "start": 395.9,
+        "end": 398.2
+      },
+      {
+        "speaker": "루아",
+        "start": 398.2,
+        "end": 399.6
+      },
+      {
+        "speaker": "용범",
+        "start": 399.6,
+        "end": 401
+      },
+      {
+        "speaker": "루아",
+        "start": 401,
+        "end": 403.4
+      },
+      {
+        "speaker": "용범",
+        "start": 403.4,
+        "end": 404.7
+      },
+      {
+        "speaker": "루아",
+        "start": 404.7,
+        "end": 409.3
+      },
+      {
+        "speaker": "용범",
+        "start": 409.3,
+        "end": 409.5
+      },
+      {
+        "speaker": "루아",
+        "start": 409.5,
+        "end": 409.7
+      },
+      {
+        "speaker": "용범",
+        "start": 409.7,
+        "end": 410.1
+      },
+      {
+        "speaker": "루아",
+        "start": 410.1,
+        "end": 411.3
+      },
+      {
+        "speaker": "용범",
+        "start": 411.3,
+        "end": 411.5
+      },
+      {
+        "speaker": "루아",
+        "start": 411.5,
+        "end": 411.7
+      },
+      {
+        "speaker": "용범",
+        "start": 411.7,
+        "end": 412.9
+      },
+      {
+        "speaker": "루아",
+        "start": 412.9,
+        "end": 413.1
+      },
+      {
+        "speaker": "용범",
+        "start": 413.1,
+        "end": 413.4
+      },
+      {
+        "speaker": "루아",
+        "start": 413.4,
+        "end": 417.4
+      },
+      {
+        "speaker": "용범",
+        "start": 417.4,
+        "end": 418.7
+      },
+      {
+        "speaker": "루아",
+        "start": 418.7,
+        "end": 422.8
+      },
+      {
+        "speaker": "용범",
+        "start": 422.8,
+        "end": 425.6
+      },
+      {
+        "speaker": "루아",
+        "start": 425.6,
+        "end": 426.3
+      },
+      {
+        "speaker": "용범",
+        "start": 426.3,
+        "end": 433.2
+      },
+      {
+        "speaker": "수현",
+        "start": 433.2,
+        "end": 434.5
+      },
+      {
+        "speaker": "용범",
+        "start": 434.5,
+        "end": 436.4
+      },
+      {
+        "speaker": "수현",
+        "start": 436.4,
+        "end": 436.8
+      },
+      {
+        "speaker": "용범",
+        "start": 436.8,
+        "end": 436.9
+      },
+      {
+        "speaker": "수현",
+        "start": 436.9,
+        "end": 437.5
+      },
+      {
+        "speaker": "루아",
+        "start": 437.5,
+        "end": 438.4
+      },
+      {
+        "speaker": "수현",
+        "start": 438.4,
+        "end": 439.8
+      },
+      {
+        "speaker": "용범",
+        "start": 439.8,
+        "end": 442.4
+      },
+      {
+        "speaker": "수현",
+        "start": 442.4,
+        "end": 443.9
+      },
+      {
+        "speaker": "루아",
+        "start": 443.9,
+        "end": 444.8
+      },
+      {
+        "speaker": "용범",
+        "start": 444.8,
+        "end": 445
+      },
+      {
+        "speaker": "루아",
+        "start": 445,
+        "end": 445.4
+      },
+      {
+        "speaker": "용범",
+        "start": 445.4,
+        "end": 449.7
+      },
+      {
+        "speaker": "수현",
+        "start": 449.7,
+        "end": 455.6
+      },
+      {
+        "speaker": "용범",
+        "start": 455.6,
+        "end": 455.9
+      },
+      {
+        "speaker": "수현",
+        "start": 455.9,
+        "end": 456.2
+      },
+      {
+        "speaker": "용범",
+        "start": 456.2,
+        "end": 456.4
+      },
+      {
+        "speaker": "수현",
+        "start": 456.4,
+        "end": 459.2
+      },
+      {
+        "speaker": "루아",
+        "start": 459.2,
+        "end": 461.7
+      },
+      {
+        "speaker": "용범",
+        "start": 461.7,
+        "end": 463.4
+      },
+      {
+        "speaker": "루아",
+        "start": 463.4,
+        "end": 464.5
+      },
+      {
+        "speaker": "수현",
+        "start": 464.5,
+        "end": 470.7
+      },
+      {
+        "speaker": "루아",
+        "start": 470.7,
+        "end": 472.3
+      },
+      {
+        "speaker": "수현",
+        "start": 472.3,
+        "end": 474.3
+      },
+      {
+        "speaker": "루아",
+        "start": 474.3,
+        "end": 475.5
+      },
+      {
+        "speaker": "수현",
+        "start": 475.5,
+        "end": 476.9
+      },
+      {
+        "speaker": "루아",
+        "start": 476.9,
+        "end": 477.6
+      },
+      {
+        "speaker": "수현",
+        "start": 477.6,
+        "end": 478.9
+      },
+      {
+        "speaker": "루아",
+        "start": 478.9,
+        "end": 480.7
+      },
+      {
+        "speaker": "수현",
+        "start": 480.7,
+        "end": 483.8
+      },
+      {
+        "speaker": "루아",
+        "start": 483.8,
+        "end": 484.3
+      },
+      {
+        "speaker": "수현",
+        "start": 484.3,
+        "end": 484.6
+      },
+      {
+        "speaker": "루아",
+        "start": 484.6,
+        "end": 485.2
+      },
+      {
+        "speaker": "수현",
+        "start": 485.2,
+        "end": 485.6
+      },
+      {
+        "speaker": "용범",
+        "start": 485.6,
+        "end": 486
+      },
+      {
+        "speaker": "루아",
+        "start": 486,
+        "end": 486.1
+      },
+      {
+        "speaker": "용범",
+        "start": 486.1,
+        "end": 486.6
+      },
+      {
+        "speaker": "루아",
+        "start": 486.6,
+        "end": 487
+      },
+      {
+        "speaker": "용범",
+        "start": 487,
+        "end": 487.1
+      },
+      {
+        "speaker": "루아",
+        "start": 487.1,
+        "end": 487.9
+      },
+      {
+        "speaker": "수현",
+        "start": 487.9,
+        "end": 488
+      },
+      {
+        "speaker": "루아",
+        "start": 488,
+        "end": 488.6
+      },
+      {
+        "speaker": "수현",
+        "start": 488.6,
+        "end": 490.1
+      },
+      {
+        "speaker": "용범",
+        "start": 490.1,
+        "end": 490.5
+      },
+      {
+        "speaker": "수현",
+        "start": 490.5,
+        "end": 490.9
+      },
+      {
+        "speaker": "용범",
+        "start": 490.9,
+        "end": 496.5
+      },
+      {
+        "speaker": "루아",
+        "start": 496.5,
+        "end": 497.6
+      },
+      {
+        "speaker": "수현",
+        "start": 497.6,
+        "end": 500.8
+      },
+      {
+        "speaker": "루아",
+        "start": 500.8,
+        "end": 503.5
+      },
+      {
+        "speaker": "용범",
+        "start": 503.5,
+        "end": 505.3
+      },
+      {
+        "speaker": "루아",
+        "start": 505.3,
+        "end": 506.1
+      },
+      {
+        "speaker": "용범",
+        "start": 506.1,
+        "end": 506.2
+      },
+      {
+        "speaker": "수현",
+        "start": 506.2,
+        "end": 508.7
+      },
+      {
+        "speaker": "루아",
+        "start": 508.7,
+        "end": 510
+      },
+      {
+        "speaker": "수현",
+        "start": 510,
+        "end": 512.1
+      },
+      {
+        "speaker": "루아",
+        "start": 512.1,
+        "end": 512.2
+      },
+      {
+        "speaker": "용범",
+        "start": 512.2,
+        "end": 512.7
+      },
+      {
+        "speaker": "루아",
+        "start": 512.7,
+        "end": 512.8
+      },
+      {
+        "speaker": "용범",
+        "start": 512.8,
+        "end": 516.4
+      },
+      {
+        "speaker": "수현",
+        "start": 516.4,
+        "end": 518
+      },
+      {
+        "speaker": "루아",
+        "start": 518,
+        "end": 518.7
+      },
+      {
+        "speaker": "수현",
+        "start": 518.7,
+        "end": 523.1
+      },
+      {
+        "speaker": "용범",
+        "start": 523.1,
+        "end": 523.4
+      },
+      {
+        "speaker": "수현",
+        "start": 523.4,
+        "end": 525.5
+      },
+      {
+        "speaker": "루아",
+        "start": 525.5,
+        "end": 525.7
+      },
+      {
+        "speaker": "수현",
+        "start": 525.7,
+        "end": 528.2
+      },
+      {
+        "speaker": "루아",
+        "start": 528.2,
+        "end": 529.7
+      },
+      {
+        "speaker": "수현",
+        "start": 529.7,
+        "end": 532.6
+      },
+      {
+        "speaker": "용범",
+        "start": 532.6,
+        "end": 534.3
+      },
+      {
+        "speaker": "루아",
+        "start": 534.3,
+        "end": 534.9
+      },
+      {
+        "speaker": "수현",
+        "start": 534.9,
+        "end": 538.7
+      },
+      {
+        "speaker": "용범",
+        "start": 538.7,
+        "end": 540.4
+      },
+      {
+        "speaker": "수현",
+        "start": 540.4,
+        "end": 540.5
+      },
+      {
+        "speaker": "용범",
+        "start": 540.5,
+        "end": 540.6
+      },
+      {
+        "speaker": "수현",
+        "start": 540.6,
+        "end": 542.2
+      },
+      {
+        "speaker": "용범",
+        "start": 542.2,
+        "end": 542.7
+      },
+      {
+        "speaker": "수현",
+        "start": 542.7,
+        "end": 546.7
+      },
+      {
+        "speaker": "루아",
+        "start": 546.7,
+        "end": 548.3
+      },
+      {
+        "speaker": "수현",
+        "start": 548.3,
+        "end": 551.3
+      },
+      {
+        "speaker": "용범",
+        "start": 551.3,
+        "end": 554.9
+      },
+      {
+        "speaker": "수현",
+        "start": 554.9,
+        "end": 555.8
+      },
+      {
+        "speaker": "용범",
+        "start": 555.8,
+        "end": 555.9
+      },
+      {
+        "speaker": "수현",
+        "start": 555.9,
+        "end": 562.6
+      },
+      {
+        "speaker": "루아",
+        "start": 562.6,
+        "end": 563.1
+      },
+      {
+        "speaker": "수현",
+        "start": 563.1,
+        "end": 563.2
+      },
+      {
+        "speaker": "루아",
+        "start": 563.2,
+        "end": 563.4
+      },
+      {
+        "speaker": "수현",
+        "start": 563.4,
+        "end": 567.4
+      },
+      {
+        "speaker": "루아",
+        "start": 567.4,
+        "end": 568.2
+      },
+      {
+        "speaker": "수현",
+        "start": 568.2,
+        "end": 572.1
+      },
+      {
+        "speaker": "용범",
+        "start": 572.1,
+        "end": 576.5
+      },
+      {
+        "speaker": "수현",
+        "start": 576.5,
+        "end": 576.7
+      },
+      {
+        "speaker": "용범",
+        "start": 576.7,
+        "end": 576.9
+      },
+      {
+        "speaker": "수현",
+        "start": 576.9,
+        "end": 577.4
+      },
+      {
+        "speaker": "루아",
+        "start": 577.4,
+        "end": 578.3
+      },
+      {
+        "speaker": "용범",
+        "start": 578.3,
+        "end": 579.2
+      },
+      {
+        "speaker": "루아",
+        "start": 579.2,
+        "end": 592.3
+      },
+      {
+        "speaker": "용범",
+        "start": 592.3,
+        "end": 593.5
+      },
+      {
+        "speaker": "루아",
+        "start": 593.5,
+        "end": 601.9
+      },
+      {
+        "speaker": "기정",
+        "start": 601.9,
+        "end": 602.2
+      },
+      {
+        "speaker": "루아",
+        "start": 602.2,
+        "end": 602.4
+      },
+      {
+        "speaker": "용범",
+        "start": 602.4,
+        "end": 602.5
+      },
+      {
+        "speaker": "루아",
+        "start": 602.5,
+        "end": 602.6
+      },
+      {
+        "speaker": "용범",
+        "start": 602.6,
+        "end": 602.9
+      },
+      {
+        "speaker": "루아",
+        "start": 602.9,
+        "end": 603
+      },
+      {
+        "speaker": "용범",
+        "start": 603,
+        "end": 603.9
+      },
+      {
+        "speaker": "루아",
+        "start": 603.9,
+        "end": 604.9
+      },
+      {
+        "speaker": "수현",
+        "start": 604.9,
+        "end": 606.3
+      },
+      {
+        "speaker": "용범",
+        "start": 606.3,
+        "end": 607
+      },
+      {
+        "speaker": "기정",
+        "start": 607,
+        "end": 608.7
+      },
+      {
+        "speaker": "용범",
+        "start": 608.7,
+        "end": 608.8
+      },
+      {
+        "speaker": "수현",
+        "start": 608.8,
+        "end": 609.1
+      },
+      {
+        "speaker": "용범",
+        "start": 609.1,
+        "end": 609.2
+      },
+      {
+        "speaker": "루아",
+        "start": 609.2,
+        "end": 609.3
+      },
+      {
+        "speaker": "수현",
+        "start": 609.3,
+        "end": 609.4
+      },
+      {
+        "speaker": "용범",
+        "start": 609.4,
+        "end": 609.8
+      },
+      {
+        "speaker": "루아",
+        "start": 609.8,
+        "end": 610.4
+      },
+      {
+        "speaker": "용범",
+        "start": 610.4,
+        "end": 611.2
+      },
+      {
+        "speaker": "수현",
+        "start": 611.2,
+        "end": 612.7
+      },
+      {
+        "speaker": "루아",
+        "start": 612.7,
+        "end": 614.1
+      },
+      {
+        "speaker": "수현",
+        "start": 614.1,
+        "end": 617.8
+      },
+      {
+        "speaker": "용범",
+        "start": 617.8,
+        "end": 617.9
+      },
+      {
+        "speaker": "루아",
+        "start": 617.9,
+        "end": 618
+      },
+      {
+        "speaker": "용범",
+        "start": 618,
+        "end": 619.3
+      },
+      {
+        "speaker": "수현",
+        "start": 619.3,
+        "end": 620.8
+      },
+      {
+        "speaker": "루아",
+        "start": 620.8,
+        "end": 629.5
+      },
+      {
+        "speaker": "용범",
+        "start": 629.5,
+        "end": 629.7
+      },
+      {
+        "speaker": "루아",
+        "start": 629.7,
+        "end": 630.2
+      },
+      {
+        "speaker": "용범",
+        "start": 630.2,
+        "end": 630.8
+      },
+      {
+        "speaker": "루아",
+        "start": 630.8,
+        "end": 633.2
+      },
+      {
+        "speaker": "용범",
+        "start": 633.2,
+        "end": 634.5
+      },
+      {
+        "speaker": "루아",
+        "start": 634.5,
+        "end": 635.1
+      },
+      {
+        "speaker": "기정",
+        "start": 635.1,
+        "end": 635.2
+      },
+      {
+        "speaker": "나연",
+        "start": 635.2,
+        "end": 636.3
+      },
+      {
+        "speaker": "용범",
+        "start": 636.3,
+        "end": 640.8
+      },
+      {
+        "speaker": "나연",
+        "start": 640.8,
+        "end": 641.1
+      },
+      {
+        "speaker": "기정",
+        "start": 641.1,
+        "end": 642.7
+      },
+      {
+        "speaker": "루아",
+        "start": 642.7,
+        "end": 644.2
+      },
+      {
+        "speaker": "기정",
+        "start": 644.2,
+        "end": 645.4
+      },
+      {
+        "speaker": "나연",
+        "start": 645.4,
+        "end": 646.5
+      },
+      {
+        "speaker": "기정",
+        "start": 646.5,
+        "end": 648.1
+      },
+      {
+        "speaker": "나연",
+        "start": 648.1,
+        "end": 648.2
+      },
+      {
+        "speaker": "수현",
+        "start": 648.2,
+        "end": 648.6
+      },
+      {
+        "speaker": "나연",
+        "start": 648.6,
+        "end": 829.4
+      }
+    ]
+  },
+  "error": null
+}
