@@ -25,11 +25,19 @@ SPEAKER_VERY_SHORT: Final[str] = "very_short"
 SPEAKER_UNKNOWN: Final[str] = "unknown"
 
 
+class WordDict(TypedDict):
+    start: float
+    end: float
+    word: str
+    speaker: str
+
+
 class RefinedChunk(TypedDict):
     start: float
     end: float
     text: str
     speaker: str
+    words: List[WordDict]
 
 
 @dataclass
@@ -52,6 +60,7 @@ class ChunkInternal:
     end: float
     text: str
     speaker: str
+    words: List[WordItem]
 
 
 def extract_stt_segments(stt_data: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -165,7 +174,10 @@ def _split_group_by_kiwi(group: SpeakerGroup) -> List[ChunkInternal]:
     if not kiwi_sentences:
         start_t = float(group.words[0].start)
         end_t = float(group.words[-1].end)
-        chunks.append(ChunkInternal(start=start_t, end=end_t, text=full_text, speaker=group.speaker))
+        chunks.append(ChunkInternal(
+            start=start_t, end=end_t, text=full_text,
+            speaker=group.speaker, words=list(group.words),
+        ))
         return chunks
 
     for sent in kiwi_sentences:
@@ -174,7 +186,10 @@ def _split_group_by_kiwi(group: SpeakerGroup) -> List[ChunkInternal]:
             continue
         start_t = float(sent_words[0].start)
         end_t = float(sent_words[-1].end)
-        chunks.append(ChunkInternal(start=start_t, end=end_t, text=sent.text, speaker=group.speaker))
+        chunks.append(ChunkInternal(
+            start=start_t, end=end_t, text=sent.text,
+            speaker=group.speaker, words=sent_words,
+        ))
 
     return chunks
 
@@ -216,9 +231,11 @@ def _merge_short_segments(chunks: List[ChunkInternal]) -> List[ChunkInternal]:
         if gap_prev <= gap_next:
             prev.end = curr.end
             prev.text = f"{prev.text} {curr.text}".strip()
+            prev.words.extend(curr.words)
         else:
             next_chunk.start = curr.start
             next_chunk.text = f"{curr.text} {next_chunk.text}".strip()
+            next_chunk.words = curr.words + next_chunk.words
 
         i += 1
 
@@ -260,6 +277,15 @@ def refine_stt_with_mic(
             "end": chunk.end,
             "text": chunk.text,
             "speaker": chunk.speaker,
+            "words": [
+                {
+                    "start": w.start,
+                    "end": w.end,
+                    "word": w.text,
+                    "speaker": w.speaker,
+                }
+                for w in chunk.words
+            ],
         }
         for chunk in merged_chunks
     ]

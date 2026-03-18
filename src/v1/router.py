@@ -198,14 +198,26 @@ async def refine_with_mic(
         ...,
         description="mic_speech_recognize 결과 JSON 파일 (화자 구간 포함)",
     ),
+    output_mode: int = Form(
+        default=0,
+        description="0: 전체 결과 (start, end, text, speaker) / 1: 문장만 (text, speaker)",
+    ),
 ):
     """STT 결과와 mic 화자 구간을 합쳐 Kiwi 문장 분리 + 화자 매핑을 수행합니다.
 
     - stt_json: WhisperX `/transcribe` 결과 (segments, words 포함)
     - mic_output_json: `/v1/recognize` 결과 (results에 화자 구간 포함)
+    - output_mode: 0이면 전체 JSON (start, end, text, speaker),
+                   1이면 문장만 (text, speaker)
 
-    반환값은 { start, end, text, speaker } 리스트입니다.
+    반환값은 output_mode에 따라 달라집니다.
     """
+    if output_mode not in (0, 1):
+        raise HTTPException(
+            status_code=400,
+            detail=f"output_mode must be 0 or 1, got {output_mode}",
+        )
+
     try:
         stt_raw = await stt_json.read()
         stt_data = json.loads(stt_raw)
@@ -219,8 +231,17 @@ async def refine_with_mic(
         raise HTTPException(status_code=400, detail=f"Invalid mic_output_json: {e}")
 
     refined = refine_stt_with_mic(stt_data, mic_data)
+
+    if output_mode == 1:
+        results = [
+            {"text": chunk["text"], "speaker": chunk["speaker"]}
+            for chunk in refined
+        ]
+    else:
+        results = refined
+
     return {
         "status": "success",
-        "count": len(refined),
-        "results": refined,
+        "count": len(results),
+        "results": results,
     }

@@ -1,0 +1,63 @@
+INFO:     Will watch for changes in these directories: ['/home/pps-nipa/PoC/fish/mic_speech_recognize']
+INFO:     Uvicorn running on http://0.0.0.0:8017 (Press CTRL+C to quit)
+INFO:     Started reloader process [3537683] using StatReload
+INFO:     Started server process [3537687]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     220.117.27.215:57080 - "POST /v1/refine HTTP/1.1" 400 Bad Request
+INFO:     220.117.27.215:41853 - "POST /v1/refine HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'src/v1/router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3537687]
+INFO:     Started server process [3557133]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     220.117.27.215:22751 - "GET /docs HTTP/1.1" 200 OK
+INFO:     220.117.27.215:22751 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     220.117.27.215:22113 - "POST /v1/refine HTTP/1.1" 200 OK
+INFO:     220.117.27.215:1415 - "POST /v1/refine HTTP/1.1" 200 OK
+INFO:     220.117.27.215:9778 - "POST /v1/refine HTTP/1.1" 200 OK
+INFO:     220.117.27.215:40297 - "POST /v1/refine HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'src/v1/utils/refine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3557133]
+INFO:     Started server process [3614892]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'src/v1/utils/refine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3614892]
+INFO:     Started server process [3615130]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'src/v1/utils/refine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3615130]
+INFO:     Started server process [3615703]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'src/v1/utils/refine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3615703]
+INFO:     Started server process [3616138]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'src/v1/utils/refine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3616138]
+INFO:     Started server process [3616504]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     220.117.27.215:32976 - "POST /v1/refine HTTP/1.1" 200 OK
